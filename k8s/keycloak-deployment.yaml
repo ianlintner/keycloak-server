@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  namespace: keycloak
+  labels:
+    app: keycloak
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+      - name: keycloak
+        image: ianlintner/keycloak-server:latest
+        args: ["start"]
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: https
+          containerPort: 8443
+        env:
+        - name: KC_DB
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_DB
+        - name: KC_DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_DB_URL
+        - name: KC_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db-secret
+              key: KC_DB_USERNAME
+        - name: KC_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-db-secret
+              key: KC_DB_PASSWORD
+        - name: KEYCLOAK_ADMIN
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-admin-secret
+              key: KEYCLOAK_ADMIN
+        - name: KEYCLOAK_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-admin-secret
+              key: KEYCLOAK_ADMIN_PASSWORD
+        - name: KC_HOSTNAME_STRICT
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_HOSTNAME_STRICT
+        - name: KC_HOSTNAME_STRICT_HTTPS
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_HOSTNAME_STRICT_HTTPS
+        - name: KC_HTTP_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_HTTP_ENABLED
+        - name: KC_PROXY
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_PROXY
+        - name: KC_HEALTH_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_HEALTH_ENABLED
+        - name: KC_METRICS_ENABLED
+          valueFrom:
+            configMapKeyRef:
+              name: keycloak-config
+              key: KC_METRICS_ENABLED
+        - name: JAVA_OPTS_APPEND
+          value: "-Djgroups.dns.query=keycloak"
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 8080
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"

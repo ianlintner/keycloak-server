@@ -1,0 +1,48 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+target/
+*.iml
+.idea/
+.classpath
+.project
+.settings/
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Docker
+*.env
+
+# Kubernetes
+*.kubeconfig
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+
+# MkDocs
+site/
+
+# Temporary files
+/tmp/

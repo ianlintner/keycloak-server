@@ -1,0 +1,67 @@
+site_name: Keycloak Server Documentation
+site_description: Custom Keycloak OAuth Server Documentation
+site_author: Ian Lintner
+repo_url: https://github.com/ianlintner/keycloak-server
+repo_name: ianlintner/keycloak-server
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+      - Configuration: getting-started/configuration.md
+  - Development:
+      - Building: development/building.md
+      - Custom Providers: development/custom-providers.md
+      - Testing: development/testing.md
+  - Deployment:
+      - Docker: deployment/docker.md
+      - Kubernetes: deployment/kubernetes.md
+      - Production: deployment/production.md
+  - Operations:
+      - Monitoring: operations/monitoring.md
+      - Troubleshooting: operations/troubleshooting.md
+      - Backup: operations/backup.md
+  - API Reference: api-reference.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+  - mkdocstrings

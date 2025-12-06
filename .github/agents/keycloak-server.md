@@ -1,7 +1,7 @@
 # Keycloak Server Agent Instructions
 
 ## Overview
-This repository contains a customized Keycloak OAuth server (version 26.0.7) with custom providers, Docker support, and Kubernetes deployment manifests.
+This repository contains a customized Keycloak OAuth server (version 26.4.7) with custom providers, Docker support, and Kubernetes deployment manifests.
 
 ## Project Structure
 - `src/main/java` - Java source code for custom Keycloak providers

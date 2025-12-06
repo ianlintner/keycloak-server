@@ -2,9 +2,9 @@
 
 [![CI](https://github.com/ianlintner/keycloak-server/actions/workflows/ci.yml/badge.svg)](https://github.com/ianlintner/keycloak-server/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Keycloak](https://img.shields.io/badge/Keycloak-26.0.7-blue)](https://www.keycloak.org/)
+[![Keycloak](https://img.shields.io/badge/Keycloak-26.4.7-blue)](https://www.keycloak.org/)
 
-A customized Keycloak OAuth/OIDC server (version 26.0.7) with custom providers, Docker support, and Kubernetes deployment manifests.
+A customized Keycloak OAuth/OIDC server (version 26.4.7) with custom providers, Docker support, and Kubernetes deployment manifests.
 
 ## 🚀 Features
 
@@ -321,7 +321,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🏷️ Version
 
 **Current Version:** 1.0.0-SNAPSHOT  
-**Keycloak Version:** 26.0.7  
+**Keycloak Version:** 26.4.7  
 **Java Version:** 17  
 **PostgreSQL Version:** 16
 

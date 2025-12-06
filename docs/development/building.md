@@ -70,11 +70,11 @@ The Dockerfile uses multi-stage builds for optimization:
 
 ```dockerfile
 # Stage 1: Builder
-FROM quay.io/keycloak/keycloak:26.0.7 as builder
+FROM quay.io/keycloak/keycloak:26.4.7 as builder
 # ... build steps
 
 # Stage 2: Runtime
-FROM quay.io/keycloak/keycloak:26.0.7
+FROM quay.io/keycloak/keycloak:26.4.7
 # ... runtime setup
 ```
 

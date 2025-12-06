@@ -1,6 +1,6 @@
 # Keycloak Server
 
-Welcome to the Keycloak Server documentation. This is a customized Keycloak OAuth server implementation based on Keycloak version 26.0.7.
+Welcome to the Keycloak Server documentation. This is a customized Keycloak OAuth server implementation based on Keycloak version 26.4.7.
 
 ## Overview
 
@@ -56,7 +56,7 @@ This project provides:
 ## Technology Stack
 
 - **Java 17** - Programming language
-- **Keycloak 26.0.7** - OAuth/OIDC server
+- **Keycloak 26.4.7** - OAuth/OIDC server
 - **PostgreSQL 16** - Database
 - **Maven** - Build tool
 - **Docker** - Containerization

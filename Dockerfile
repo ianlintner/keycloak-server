@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:26.0.7 as builder
+FROM quay.io/keycloak/keycloak:26.4.7 as builder
 
 # Enable health and metrics support
 ENV KC_HEALTH_ENABLED=true
@@ -15,7 +15,7 @@ COPY target/*.jar /opt/keycloak/providers/
 # Build optimized Keycloak
 RUN /opt/keycloak/bin/kc.sh build
 
-FROM quay.io/keycloak/keycloak:26.0.7
+FROM quay.io/keycloak/keycloak:26.4.7
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 # Set environment variables
